@@ -12,32 +12,40 @@ namespace DSA
     {
         internal static void Begin()
         {
-            Console.WriteLine("Pick your choice:");
-            Console.WriteLine("1: Insertion Sort");
-            Console.WriteLine("2: Selection Sort");
-            Console.WriteLine("3: Bubble Sort");
-            Console.WriteLine("4: Merge Sort");
-            Console.WriteLine("5: Quick Sort");
-            switch (char.ToLower(Console.ReadKey().KeyChar))
+            int[] arr = new int[] { 0, 3, 45, 7, 2, 0, 8, 9, 10, 4, 1, 0, 5, 3 };
+            char choice = 'n';
+            do
             {
-                case '1':
-                    InsertionSort(new int[] { 3, 4, 4, 1, 0, 5, 3 });
-                    break;
-                case '2':
-                    SelectionSort(new int[] { 3, 45, 7, 2, 4, 1, 0, 5, 3 });
-                    break;
-                case '3':
-                    BubbleSort(new int[] { 0, 1, 2, 3, 4, 6 });
-                    break;
-                case '4':
-                    MergeSort(new int[] { 3, 45, 7, 2, 4, 1, 0, 5, 3 });
-                    break;
-                case '5':
-                    QuickSort(new int[] { 0, 3, 45, 7, 2, 0, 8, 9, 10, 4, 1, 0, 5, 3 });
-                    break;
-                default:
-                    break;
-            }
+                Console.WriteLine("Pick your choice:\n1: Insertion Sort\n2: Selection Sort\n3: Bubble Sort\n4: Merge Sort\n5: Quick Sort\n");
+                switch (char.ToLower(Console.ReadKey(true).KeyChar))
+                {
+                    case '1':
+                        InsertionSort(arr);
+                        Console.WriteLine();
+                        break;
+                    case '2':
+                        SelectionSort(arr);
+                        Console.WriteLine();
+                        break;
+                    case '3':
+                        BubbleSort(arr);
+                        Console.WriteLine();
+                        break;
+                    case '4':
+                        MergeSort(arr);
+                        Console.WriteLine();
+                        break;
+                    case '5':
+                        QuickSort(arr);
+                        Console.WriteLine();
+                        break;
+                    default:
+                        break;
+                }
+                Console.WriteLine("Press 'n' to exit.\n");
+                choice = char.ToLower(Console.ReadKey(true).KeyChar);
+            } while (choice != 'n');
+            
         }
         internal static void InsertionSort(int[] arr)
         {
